@@ -1,0 +1,21 @@
+@charset "UTF-8";
+/* CSS Document */
+#main_image {
+	background-image: url(../2011%20Pictures/atrium%20poster.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	position: relative;
+	height: 484px;
+	width: 968px;
+	background-color: #000;
+}
+h1 {
+	color:#93C
+	background: #000
+	font-family: "Times New Roman", Times, serif;
+	color: #93C;
+	background-color: #FFF;
+}
+#le_text {
+	width: 968;
+}

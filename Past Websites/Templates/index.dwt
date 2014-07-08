@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<meta name="generator" content="Adobe GoLive" />
+		<!-- TemplateBeginEditable name="doctitle" -->
+		<title>Your Website</title>
+		<!-- TemplateEndEditable -->
+		<style type="text/css" media="screen">
+		<!--
+			#outline { position: relative; height: 800px; width: 915px; margin: 18px auto 0; border: solid 1px #999; }
+			#caption { width: 260px; left: 48px; top: 318px; position: absolute; visibility: visible; }
+			#text {
+	left: 5px;
+	top: 330px;
+	position: absolute;
+	width: 442px;
+	visibility: visible;
+	margin-top: 10px;
+	height: 198px;
+}
+			#title {
+	width: 908px;
+	top: 212px;
+	position: absolute;
+	visibility: visible;
+	left: 5px;
+	height: 51px;
+	z-index: 0;
+}
+			p { color: #666; font-size: 16px; font-family: "Lucida Grande", Arial, sans-serif; font-weight: normal; margin-top: 0; }
+			h1 { color: #778fbd; font-size: 20px; font-family: "Lucida Grande", Arial, sans-serif; font-weight: 500; line-height: 32px; margin-top: 4px; }
+			h2 { color: #778fbd; font-size: 18px; font-family: "Lucida Grande", Arial, sans-serif; font-weight: normal; margin: 0.83em 0 0; }
+			h3 { color: #666; font-size: 60px; font-family: "Lucida Grande", Arial, sans-serif; font-weight: bold; text-align: center; letter-spacing: -1px; width: auto; }
+			h4 { font-weight: bold; text-align: center; margin: 1.33em 0; }
+			a { color: #666; text-decoration: underline; }
+.style1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+.style2 {font-size: 16px}
+.style3 {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: bold;
+	font-size: 20px;
+	color: #6699FF;
+}
+.style10 {color: #9cd3f3}
+#Layer1 {
+	position:absolute;
+	width:401px;
+	height:252px;
+	z-index:1;
+	left: 477px;
+	top: 284px;
+}
+		-->
+		</style>
+	    <!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+	</head>
+
+
+	<body>
+	<div id="outline">
+	  <div id="title">
+	    <p><span class="style3"><span class="style10">UPDATE: August, 12, 2010<br />
+	      </span></span><span class="style1">Welcome everyone, to the newly revamped CSA website. As you can see, the site is under some serious construction--we are currently making some improvements to better serve you. If you have any question or comments, please do not hesitate to contact el presidente, Kevin Hoang at <a href="mailto: kevin.hoang@tufts.edu">kevin.hoang@tufts.edu</a>. In the mean time, sit back, hang tight, and enjoy the rest of your summer!! We'll see you in September!<br />
+	      </span><span class="style1"><br />
+        Sincerely,<br />
+        Your Web Master</span><span class="style3"><br />
+          <br />
+          </span></p>
+      </div>
+			<div id="text">
+		    <p align="left" class="style1 style2"><span class="style3"><span class="style10">OUR MISSION <br />
+            </span></span><span class="style1">Tufts' CSA is one of the largest cultural organizations on campus. </span><span class="style1">Our goal is to provide members the opportunity to meet and connect with one another while exploring the different aspects of Chinese culture. We hope to broaden the understanding and appreciation of Chinese Culture. We aim to outreach to other organizations--on and off campus--to provide our members with volunteer opportunities to better the Asian community.</span></p>
+      </div>
+			
+            <pre><img src="../csabanner.jpg" width="915" height="200" border="0" /></pre>
+	        <div id="Layer1"><img src="../csagroup09-10.jpg" alt="csagroup09-10" width="400" height="250" /></div>
+	</div>
+	</body>
+
+</html>

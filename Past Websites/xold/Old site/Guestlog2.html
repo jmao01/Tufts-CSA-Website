@@ -1,0 +1,133 @@
+
+
+
+
+print "Content-type:text/html\n\n"; 
+
+
+# Relative path of Guestbook.html
+$guestbook_file = "../guestlog.html";
+
+# URL to guestbook.html
+$guestbook_url = "http://asetufts.edu/guestlog.html";
+
+# Initialize list of months
+@month = ("January", "February", "March", "April", "May",
+"June", "July", "August", "September", "October",
+"November", "December");
+
+
+if($ENV{'REQUEST_METHOD'} eq "GET"){
+   $my_data = $ENV{'QUERY_STRING'};
+}
+else {
+   $data_length = $ENV{'CONTENT_LENGTH'};
+   $bytes_read = read(STDIN, $my_data, $data_length);
+}
+
+# Let's load it into something we can use
+@name_value_array = split(/&/, $my_data);
+
+# Here's where we do the actual work. We're going to cycle 
+# through @name_value_array to decode the name=value pairs
+foreach $name_value_pair (@name_value_array) {
+   # Split the name=value pair in your HTML form data
+   ($name, $value) = split(/=/, $name_value_pair);
+
+   # Now, replace '+' with ' '
+   $name =~ tr/+/ /;
+   $value =~ tr/+/ /;
+
+   # Next, we'll translate any hex values back into characters
+   $name =~ s/%(..)/pack("C",hex($1))/eg;
+   $value =~ s/%(..)/pack("C",hex($1))/eg;
+  
+   # Finally, we'll load the variables into an associative array 
+   # so we can use it when we need it. 
+   if($form_data{$name}) 
+   { 
+      $form_data{$name} .= "\t$value"; 
+   } 
+   else 
+   { 
+      $form_data{$name} = $value; 
+   } 
+
+($Seconds, $Minutes, $Hours, $DayInMonth, $Month, 
+$ShortYear, $DayOfWeek, $DayOfYear, $IsDST) = localtime(time);
+
+# Make the year four digits instead of just two
+$Year = $ShortYear + 1900;
+$EntryDate = "$month[$Month] $DayInMonth, $Year";
+
+
+open(GUESTBOOK, "<$guestbook_file") || 
+   die "Can't open GUESTBOOK: $guestbook_file\n";
+
+# Read the entire file into a list so we can use it later
+@guestbook =<GUESTBOOK>;
+
+# ALWAYS close the file when you're done!
+close(GUESTBOOK);
+
+
+open(GUESTBOOK, ">$guestbook_file") || 
+   die "Can't open GUESTBOOK: $guestbook_file\n"; 
+
+foreach $line (@guestbook){
+   # Check to see if we're at the beginning of the guest book
+   if($line =~ /<!--My Latest Guest:-->/i) {
+      
+      print GUESTBOOK "<!--My Latest Guest:-->\n"; 
+    
+     
+      print GUESTBOOK "<DL>\n"; 
+
+   
+      if($form_data{'email'}) { 
+         # if there's an email address, let's add it as a link 
+         print GUESTBOOK "<DD><I><B><A HREF=\"mailto:$form_data{'email'}\"> 
+            $form_data{'name'}</A></B> - $form_data{'city'},
+            $form_data{'location'}</I>\n"; 
+      } 
+      else { 
+         # otherwise, just add their name 
+         print GUESTBOOK "<I><B>From:</B> $form_data{'name'}</I><BR>\n"; 
+      } 
+   
+      if($form_data{'web_url'}) { 
+         # If they included their web url, add the link 
+         print GUESTBOOK "<DD>Homepage : 
+            <A HREF=\"$form_data{'web_url'}\">$form_data{'web_title'}</A>\n"; 
+      } 
+     
+      # add the comments 
+      print GUESTBOOK "<P>\n"; 
+      print GUESTBOOK "$form_data{'comments'}\n"; 
+      print GUESTBOOK "</P>\n"; 
+   
+      # add the date  
+      print GUESTBOOK "<p><I><font size=2>\n"; 
+      print GUESTBOOK "signed on $EntryDate\n"; 
+      print GUESTBOOK "</font></I>\n"; 
+
+      # finish up 
+      print GUESTBOOK "</DL>\n"; 
+      print GUESTBOOK "<HR>\n"; 
+      
+   }# end: if($line =~ /<!--My Latest Guest:-->/i)  
+   else { 
+      
+      print GUESTBOOK "$line"; 
+   }# end: else[if($line =~ /<!--My Latest Guest:-->/i)]
+}# end: foreach $line (@guestbook) {  
+
+close(GUESTBOOK); 
+
+
+print <<"EOF" 
+<H1>Your GuestBook Entry has been Submitted\!</H1> 
+Your guestbook entry has been successfully added to the 
+<A HREF="$guestbook_url">guestbook</A>. 
+You may need to click reload to view your guestbook entry.<P> 
+EOF
