@@ -373,6 +373,11 @@ img.face {
     padding-top: 10px;
 }
 
-h1.contactSpace, h3.contactSpace, h4.contactSpace {
+h1.contactSpace, h3.contactSpace, h4.contactSpace, h1.heading {
 	 margin: 0 0 35px;
+}
+
+div.person > h3, div.person > h4, div.person > h5 {
+    padding-left: 10px;
+    padding-right: 10px;
 }
